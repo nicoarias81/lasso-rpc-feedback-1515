@@ -1,0 +1,117 @@
+{
+ "benchmark": {
+  "lasso-premium": {
+   "n": 30,
+   "p50": 121.7,
+   "p95": 134.4,
+   "min": 102.6,
+   "max": 153.1
+  },
+  "lasso-public": {
+   "n": 30,
+   "p50": 118.3,
+   "p95": 126.4,
+   "min": 95.2,
+   "max": 136.2
+  },
+  "publicnode-base": {
+   "n": 30,
+   "p50": 39.2,
+   "p95": 47.0,
+   "min": 19.3,
+   "max": 47.8
+  }
+ },
+ "calls": {
+  "eth_blockNumber#0": {
+   "method": "eth_blockNumber",
+   "label": null,
+   "status": 200,
+   "ms": 110.0,
+   "ok": true,
+   "same_as_publicnode": false,
+   "provider": "premium_base_5",
+   "overhead_ms": 2.163,
+   "upstream_ms": 3.077,
+   "retries": 0,
+   "request_id": "GOKbuhm6gwZAv8cAEDHk",
+   "error": null,
+   "result_head": "\"0x32b9883\""
+  },
+  "eth_getBalance#1": {
+   "method": "eth_getBalance",
+   "label": null,
+   "status": 200,
+   "ms": 284.5,
+   "ok": true,
+   "same_as_publicnode": false,
+   "provider": "premium_base_6",
+   "overhead_ms": 33.895,
+   "upstream_ms": 135.425,
+   "retries": 1,
+   "request_id": "GOKbuiLieFhzvFcAPSVB",
+   "error": null,
+   "result_head": "\"0x12c7e12a959d8f84\""
+  },
+  "eth_call#2": {
+   "method": "eth_call",
+   "label": null,
+   "status": 200,
+   "ms": 146.8,
+   "ok": true,
+   "same_as_publicnode": false,
+   "provider": "premium_base_6",
+   "overhead_ms": 3.151,
+   "upstream_ms": 30.094,
+   "retries": 0,
+   "request_id": "GOKbujYpKY4BJswAJI2j",
+   "error": null,
+   "result_head": "\"0x0000000000000000000000000000000000000000000000000000000000000000\""
+  },
+  "eth_getLogs#3": {
+   "method": "eth_getLogs",
+   "label": null,
+   "status": 200,
+   "ms": 575.2,
+   "ok": true,
+   "same_as_publicnode": false,
+   "provider": "premium_base_5",
+   "overhead_ms": 14.939,
+   "upstream_ms": 141.127,
+   "retries": 1,
+   "request_id": "GOKbukEDn3QQsXsAPSWh",
+   "error": null,
+   "result_head": "[{\"address\": \"0x833589fcd6edb6e08f4c7c32d4f71b54bda02913\", \"blockHash\": \"0xc92a58457887ced7528960ec7"
+  },
+  "eth_getLogs#4": {
+   "method": "eth_getLogs",
+   "label": "rango 200k",
+   "status": 200,
+   "ms": 312.9,
+   "ok": false,
+   "same_as_publicnode": true,
+   "provider": "base_paid_reserve",
+   "overhead_ms": 12.071,
+   "upstream_ms": 170.314,
+   "retries": 12,
+   "request_id": "GOKbumc1lJr83ycAJI4j",
+   "error": "{\"code\": -32005, \"data\": {\"code\": \"log_range_limit\", \"reason\": \"log_range_too_large\", \"action\": \"reduce_block_range\", \"error_type\": \"log_range_limit\", \"request_id\": \"GOKbumc1lJr83ycAJI4j\", \"next_action\": \"Reduce the eth_getLogs block range and retry.\", \"retryable\": false}, \"messa",
+   "result_head": null
+  },
+  "eth_getTransactionReceipt#5": {
+   "method": "eth_getTransactionReceipt",
+   "label": null,
+   "status": 200,
+   "ms": 249.2,
+   "ok": true,
+   "same_as_publicnode": true,
+   "provider": "premium_base_5",
+   "overhead_ms": 2.248,
+   "upstream_ms": 129.464,
+   "retries": 0,
+   "request_id": "GOKbuntwdPIfHuEAJI6j",
+   "error": null,
+   "result_head": null
+  }
+ }
+}

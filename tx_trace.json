@@ -1,0 +1,58 @@
+[
+ {
+  "method": "eth_call",
+  "request_id": "GOKcnCOYrE5dY9oAP7Th",
+  "provider": "premium_base_1",
+  "retries": 0,
+  "overhead_ms": 2.146,
+  "error": null
+ },
+ {
+  "method": "eth_estimateGas",
+  "request_id": "GOKcnDZbQNDptAAANZHi",
+  "provider": "premium_base_1",
+  "retries": 0,
+  "overhead_ms": 2.105,
+  "error": null
+ },
+ {
+  "method": "eth_getTransactionCount",
+  "request_id": "GOKcnD-iE0SrcX0AP7Wh",
+  "provider": "premium_base_1",
+  "retries": 0,
+  "overhead_ms": 2.055,
+  "error": null
+ },
+ {
+  "method": "eth_gasPrice",
+  "request_id": "GOKcnE3z5PScZfQANZIC",
+  "provider": "premium_base_6",
+  "retries": 0,
+  "overhead_ms": 2.118,
+  "error": null
+ },
+ {
+  "method": "eth_getBalance",
+  "request_id": "GOKcnF2IVgyDDQwAP7YB",
+  "provider": "premium_base_1",
+  "retries": 0,
+  "overhead_ms": 2.006,
+  "error": null
+ },
+ {
+  "method": "eth_sendRawTransaction",
+  "request_id": "GOKcnGdXlqKAbz0ANZJi",
+  "provider": "premium_base_2",
+  "retries": 0,
+  "overhead_ms": 1.946,
+  "error": null
+ },
+ {
+  "method": "eth_getTransactionReceipt",
+  "request_id": "GOKcnSpqUzy7RHoAJdhj",
+  "provider": "premium_base_6",
+  "retries": 0,
+  "overhead_ms": 2.596,
+  "error": null
+ }
+]

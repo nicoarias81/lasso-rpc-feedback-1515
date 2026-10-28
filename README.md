@@ -75,7 +75,7 @@ attempt.
 
 - **`RPS 0` next to `P50 53 ms / P95 98 ms / success 100%`.** Those numbers are probe health, not
   client traffic, but they sit in one "Performance" block with nothing marking the difference. I
-  spent a minute wondering why my 30 requests didn't move RPS.
+  spent a minute wondering why my 12 requests on the public profile didn't move RPS.
 - **Three denominators in one view**: `3/3 providers`, `4/4 regions`, `4/4 cluster nodes
   reporting`. They're different layers, unlabeled as such.
 - **`RPC Request Tester — Public RPC · 5 RPS / 10 sec · 2 left`**: "2 left" of what? A per-IP
@@ -100,9 +100,32 @@ free, per request, without a second vendor account. What I need before making it
 doesn't spend 12 retries on a client error, (3) a claim link so the account isn't permanently
 provisional.
 
+## The claim transaction (write path, through Lasso)
+
+This bounty's own claim was submitted with the RPC pointed at
+`rpc/k/<key>/profile/premium/base`. All seven calls of the flow went through Lasso, each with a
+`request_id` (recorded in `tx_trace.json`):
+
+| step | provider chosen | request_id |
+|---|---|---|
+| `eth_call` (simulate `createClaim`) | premium_base_1 | GOKcnCOYrE5dY9oAP7Th |
+| `eth_estimateGas` | premium_base_1 | GOKcnDZbQNDptAAANZHi |
+| `eth_getTransactionCount` | premium_base_1 | GOKcnD-iE0SrcX0AP7Wh |
+| `eth_gasPrice` | premium_base_6 | GOKcnE3z5PScZfQANZIC |
+| `eth_getBalance` | premium_base_1 | GOKcnF2IVgyDDQwAP7YB |
+| `eth_sendRawTransaction` | premium_base_2 | GOKcnGdXlqKAbz0ANZJi |
+| `eth_getTransactionReceipt` | premium_base_6 | GOKcnSpqUzy7RHoAJdhj |
+
+- tx: [`0xddf13be8…56c6aab5`](https://basescan.org/tx/0xddf13be84bd275a4411a0cac39ef22ef3bb253905ad48982cf5123bb56c6aab5)
+- block 53,189,226 · status 1 · gasUsed 2,826,955 · zero retries across the seven calls
+- Note for anyone scripting against poidh: the UI id (1515) is not the contract id. The first
+  attempt reverted with `BountyNotFound()` (0x93395f9c); the on-chain id is `onChainId = 529`,
+  taken from the bounty's `/data` endpoint.
+
 ## Files
 
 - `repro.py` — reproduces everything above (needs only `LASSO_KEY`)
 - `battery.json` — per-call results with `lasso_meta`
 - `pinned.json` — pinned-block agreement
+- `tx_trace.json` — Lasso request ids for the claim transaction
 - `lasso-dashboard-base.png` — dashboard screenshot
